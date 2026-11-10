@@ -1,2 +1,3 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Welcome to the Brain Games!");
+Cli.Greeting();
+Cli.RequestUserName();
