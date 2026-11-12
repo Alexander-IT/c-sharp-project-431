@@ -6,13 +6,11 @@ class CalcGame : IGame
     private const int MAX_RAND_FOR_ADD_AND_SUB = 1073741823; // ~ half of Int32.MaxValue
     private Random _randomGenerator = new();
 
-
     public void GenerateNextQuestion()
     {
         var typeOfOperator = _randomGenerator.Next(0, 3); // 0 - addition, 1 - subtraction, 2 - multiplication
-        
 
-        switch(typeOfOperator)
+        switch (typeOfOperator)
         {
             case 0:
                 var addA = _randomGenerator.Next(MAX_RAND_FOR_ADD_AND_SUB);
@@ -34,11 +32,10 @@ class CalcGame : IGame
                 break;
         }
     }
-    
 
-    public string Question{get; private set;} = string.Empty;
+    public string Question { get; private set; } = string.Empty;
 
-    public string Answer{get; private set;} = string.Empty;
+    public string Answer { get; private set; } = string.Empty;
 
     public string RULES_OF_THE_GAME => "What is the result of the expression?";
 }

@@ -1,5 +1,6 @@
-using App;
 using App.Games;
+
+namespace App;
 
 static class Engine
 {
@@ -9,19 +10,21 @@ static class Engine
 
         Console.WriteLine(game.RULES_OF_THE_GAME);
 
-        for(var count = 0; count < 3; count++)
+        for (var count = 0; count < 3; count++)
         {
             game.GenerateNextQuestion();
             Console.WriteLine($"Question: {game.Question}\nYour answer: ");
             var userAnswer = Console.ReadLine();
 
-            if(game.Answer.Equals(userAnswer))
+            if (game.Answer.Equals(userAnswer))
             {
                 Console.WriteLine("Correct!");
-            } 
+            }
             else
             {
-                Console.WriteLine($"'{userAnswer}' is wrong answer ;(. Correct answer was '{game.Answer}'.");
+                Console.WriteLine(
+                    $"'{userAnswer}' is wrong answer ;(. Correct answer was '{game.Answer}'."
+                );
                 PrintResultGame(false, userName);
                 return;
             }
@@ -41,16 +44,21 @@ static class Engine
         }
     }
 
-    private static IGame GetGame(TypesOfGames gameType) => gameType switch
-    {
-        TypesOfGames.Even => new EvenGame(),
-        TypesOfGames.Calc => new CalcGame(),
-        _ => throw new ArgumentException("Incorrect type of game, There is not in enum TypesOfGames")
-    };
+    private static IGame GetGame(TypesOfGames gameType) =>
+        gameType switch
+        {
+            TypesOfGames.Even => new EvenGame(),
+            TypesOfGames.Calc => new CalcGame(),
+            TypesOfGames.GCD => new GCD(),
+            _ => throw new ArgumentException(
+                "Incorrect type of game, There is not in enum TypesOfGames"
+            ),
+        };
 
     public enum TypesOfGames
     {
         Even = 0,
-        Calc = 1
+        Calc = 1,
+        GCD = 2,
     }
 }

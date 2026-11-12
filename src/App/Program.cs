@@ -1,6 +1,4 @@
-﻿using App.Games;
-
-namespace App;
+﻿namespace App;
 
 static class Program
 {
@@ -9,7 +7,7 @@ static class Program
         OpenMainMenu();
         var menuPoints = GetUserChoice();
 
-        if(menuPoints == MenuPoints.Exit)
+        if (menuPoints == MenuPoints.Exit)
         {
             return;
         }
@@ -17,8 +15,8 @@ static class Program
         {
             Cli.Greeting();
             var userName = Cli.RequestUserName();
-            
-            if(menuPoints != MenuPoints.Greet)
+
+            if (menuPoints != MenuPoints.Greet)
             {
                 // (menuPoints - 2) because we have an offset relative Engine.TypesOfGame
                 Engine.StartGame((Engine.TypesOfGames)menuPoints - 2, userName);
@@ -33,6 +31,7 @@ static class Program
 1 - {(MenuPoints)1}
 2 - {(MenuPoints)2}
 3 - {(MenuPoints)3}
+4 - {(MenuPoints)4}
 0 - {(MenuPoints)0}"
         );
     }
@@ -74,6 +73,7 @@ static class Program
         Exit = 0,
         Greet = 1,
         Even = 2,
-        Calc = 3
+        Calc = 3,
+        GCD = 4,
     }
 }
