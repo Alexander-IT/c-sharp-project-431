@@ -1,36 +1,43 @@
-﻿static class Program
+﻿using App.Games;
+
+namespace App;
+
+static class Program
 {
     public static void Main()
     {
         OpenMainMenu();
+        var menuPoints = GetUserChoice();
 
-        switch (GetUserChoice())
+        if(menuPoints == MenuPoints.Exit)
         {
-            case 0:
-                break;
-            case 1:
-                Cli.Greeting();
-                Cli.RequestUserName();
-                break;
-            case 2:
-                Cli.Greeting();
-                Cli.RequestUserName();
-                ResultGameHandler.PrintResultGame(EvenGame.StartGame(), Cli.UserName);
-                break;
+            return;
+        }
+        else
+        {
+            Cli.Greeting();
+            var userName = Cli.RequestUserName();
+            
+            if(menuPoints != MenuPoints.Greet)
+            {
+                // (menuPoints - 2) because we have an offset relative Engine.TypesOfGame
+                Engine.StartGame((Engine.TypesOfGames)menuPoints - 2, userName);
+            }
         }
     }
 
     private static void OpenMainMenu()
     {
         Console.WriteLine(
-            @"Please enter the game number and press Enter.
-1 - Greet
-2 - Even
-0 - Exit"
+            @$"Please enter the game number and press Enter.
+1 - {(MenuPoints)1}
+2 - {(MenuPoints)2}
+3 - {(MenuPoints)3}
+0 - {(MenuPoints)0}"
         );
     }
 
-    private static int GetUserChoice()
+    private static MenuPoints GetUserChoice()
     {
         int? userChoice = null;
 
@@ -50,7 +57,7 @@
 
             if (userChoice >= 0 && userChoice <= 6)
             {
-                return (int)userChoice;
+                return (MenuPoints)userChoice;
             }
             else
             {
@@ -60,5 +67,13 @@
                 );
             }
         }
+    }
+
+    private enum MenuPoints
+    {
+        Exit = 0,
+        Greet = 1,
+        Even = 2,
+        Calc = 3
     }
 }

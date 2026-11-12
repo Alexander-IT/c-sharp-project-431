@@ -31,8 +31,11 @@ cd c-sharp-project-431
 
 </details>
 
-## Asciinema работы приложения(ранняя версия)
+## Asciinema Even game
 https://asciinema.org/a/XyQQlZJTh79tJ9tJ
+
+## Asciinema Calc game
+https://asciinema.org/a/BACXC7r7XKnqQTqS
 
 ## О Хекслете
 
