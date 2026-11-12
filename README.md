@@ -24,15 +24,15 @@ cd c-sharp-project-431
 
 <!-- Добавьте примеры запуска и запись asciinema — именно это смотрит работодатель -->
 
-## Asciinema работы приложения(ранняя версия)
-https://asciinema.org/a/XyQQlZJTh79tJ9tJ
-
 <details>
 <summary>Автоматические тесты Хекслета</summary>
 
 Тесты запускаются на каждый коммит. За запуск отвечает файл `.github/workflows/hexlet-check.yml` — не удаляйте и не переименовывайте ни его, ни репозиторий.
 
 </details>
+
+## Asciinema работы приложения(ранняя версия)
+https://asciinema.org/a/XyQQlZJTh79tJ9tJ
 
 ## О Хекслете
 
