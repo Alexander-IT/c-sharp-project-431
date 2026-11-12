@@ -24,7 +24,8 @@ cd c-sharp-project-431
 
 <!-- Добавьте примеры запуска и запись asciinema — именно это смотрит работодатель -->
 
----
+## Asciinema работы приложения(ранняя версия)
+https://asciinema.org/a/XyQQlZJTh79tJ9tJ
 
 <details>
 <summary>Автоматические тесты Хекслета</summary>

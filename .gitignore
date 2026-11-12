@@ -440,3 +440,5 @@ Icon
 # Thumbnails
 ._*
 
+# Cast about demo working app(asciinema)
+*.cast
