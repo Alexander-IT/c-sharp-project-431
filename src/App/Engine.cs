@@ -39,11 +39,11 @@ static class Engine
     {
         if (didUserWin)
         {
-            Console.WriteLine($"Congragulations, {userName}!");
+            Console.WriteLine($"Congratulations, {userName}!");
         }
         else
         {
-            Console.WriteLine($"Let's try again, {userName}");
+            Console.WriteLine($"Let's try again, {userName}!");
         }
     }
 
