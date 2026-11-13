@@ -13,22 +13,27 @@ class GCD : IGame
 
         _question = $"{a} {b}";
 
+        int commonDivisor = CalculateCommonDivisor(a, b);
+
+        _answer = commonDivisor.ToString();
+    }
+
+    private int CalculateCommonDivisor(int a, int b)
+    {
         int commonDivisor;
 
         if (b == 0)
             commonDivisor = a;
-        else
-        {
-            while (b != 0)
-            {
-                var tmp = a % b;
-                a = b;
-                b = tmp;
-            }
-            commonDivisor = a;
-        }
 
-        _answer = commonDivisor.ToString();
+        while (b != 0)
+        {
+            var tmp = a % b;
+            a = b;
+            b = tmp;
+        }
+        commonDivisor = a;
+
+        return commonDivisor;
     }
 
     public override string Question => _question;

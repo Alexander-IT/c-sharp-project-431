@@ -51,6 +51,7 @@ static class Engine
             TypesOfGames.Calc => new CalcGame(),
             TypesOfGames.GCD => new GCD(),
             TypesOfGames.Progression => new Progression(),
+            TypesOfGames.Prime => new Prime(),
             _ => throw new ArgumentException(
                 "Incorrect type of game, There is not in enum TypesOfGames"
             ),
@@ -61,6 +62,7 @@ static class Engine
         Even = 0,
         Calc = 1,
         GCD = 2,
-        Progression = 3
+        Progression = 3,
+        Prime = 4
     }
 }
