@@ -32,6 +32,7 @@ static class Program
 2 - {(MenuPoints)2}
 3 - {(MenuPoints)3}
 4 - {(MenuPoints)4}
+5 - {(MenuPoints)5}
 0 - {(MenuPoints)0}"
         );
     }
@@ -75,5 +76,6 @@ static class Program
         Even = 2,
         Calc = 3,
         GCD = 4,
+        Progression = 5
     }
 }

@@ -14,7 +14,7 @@ static class Engine
         {
             game.GenerateNextQuestion();
             Console.WriteLine($"Question: {game.Question}\nYour answer: ");
-            var userAnswer = Console.ReadLine();
+            var userAnswer = Console.ReadLine()?.Trim();
 
             if (game.Answer.Equals(userAnswer))
             {
@@ -50,6 +50,7 @@ static class Engine
             TypesOfGames.Even => new EvenGame(),
             TypesOfGames.Calc => new CalcGame(),
             TypesOfGames.GCD => new GCD(),
+            TypesOfGames.Progression => new Progression(),
             _ => throw new ArgumentException(
                 "Incorrect type of game, There is not in enum TypesOfGames"
             ),
@@ -60,5 +61,6 @@ static class Engine
         Even = 0,
         Calc = 1,
         GCD = 2,
+        Progression = 3
     }
 }

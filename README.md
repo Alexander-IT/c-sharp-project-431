@@ -40,6 +40,9 @@ https://asciinema.org/a/BACXC7r7XKnqQTqS
 ## Asciinema GCD game
 https://asciinema.org/a/tCo6k0FAFM9JtADe
 
+## Asciinema Progression game
+https://asciinema.org/a/21Ozs7zmSNjRKkow
+
 ## О Хекслете
 
 [Хекслет](https://ru.hexlet.io/) — школа программирования: авторские программы обучения с практикой, поддержкой наставников и реальными проектами, которые остаются в резюме. Этот репозиторий — один из таких проектов.

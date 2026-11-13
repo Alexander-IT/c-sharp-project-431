@@ -3,17 +3,19 @@ namespace App.Games;
 class EvenGame : IGame
 {
     private Random _randomGenerator = new();
+    private string _question = string.Empty;
+    private string _answer = string.Empty;
 
-    public void GenerateNextQuestion()
+    public override void GenerateNextQuestion()
     {
         var question = _randomGenerator.Next();
-        Question = question.ToString();
-        Answer = question % 2 == 0 ? "yes" : "no";
+        _question = question.ToString();
+        _answer = question % 2 == 0 ? "yes" : "no";
     }
 
-    public string Question { get; private set; } = string.Empty;
+    public override string Question => _question;
 
-    public string Answer { get; private set; } = string.Empty;
+    public override string Answer => _answer;
 
-    public string RULES_OF_THE_GAME => "Answer 'yes' if the number is even, otherwice answer 'no'.";
+    public override string RULES_OF_THE_GAME => "Answer 'yes' if the number is even, otherwice answer 'no'.";
 }

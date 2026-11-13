@@ -3,13 +3,15 @@ namespace App.Games;
 class GCD : IGame
 {
     private Random _randomGenerator = new();
+    private string _question = string.Empty;
+    private string _answer = string.Empty;
 
-    public void GenerateNextQuestion()
+    public override void GenerateNextQuestion()
     {
         var a = _randomGenerator.Next();
         var b = _randomGenerator.Next();
 
-        Question = $"{a} {b}";
+        _question = $"{a} {b}";
 
         int commonDivisor;
 
@@ -26,12 +28,12 @@ class GCD : IGame
             commonDivisor = a;
         }
 
-        Answer = commonDivisor.ToString();
+        _answer = commonDivisor.ToString();
     }
 
-    public string Question { get; private set; } = string.Empty;
+    public override string Question => _question;
 
-    public string Answer { get; private set; } = string.Empty;
+    public override string Answer => _answer;
 
-    public string RULES_OF_THE_GAME => "What is the result of the expression?";
+    public override string RULES_OF_THE_GAME => "Find the greatest common divisor of given numbers.";
 }

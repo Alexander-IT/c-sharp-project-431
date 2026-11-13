@@ -1,12 +1,12 @@
 namespace App.Games;
 
-interface IGame
+abstract class IGame
 {
-    public void GenerateNextQuestion();
+    public abstract void GenerateNextQuestion();
 
-    public string Question { get; }
+    public abstract string Question { get; }
 
-    public string Answer { get; }
+    public abstract string Answer { get; }
 
-    string RULES_OF_THE_GAME { get; }
+    public abstract string RULES_OF_THE_GAME { get; }
 }
