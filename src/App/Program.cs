@@ -78,6 +78,6 @@ static class Program
         Calc = 3,
         GCD = 4,
         Progression = 5,
-        Prime = 6
+        Prime = 6,
     }
 }

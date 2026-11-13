@@ -40,5 +40,6 @@ class GCD : IGame
 
     public override string Answer => _answer;
 
-    public override string RULES_OF_THE_GAME => "Find the greatest common divisor of given numbers.";
+    public override string RULES_OF_THE_GAME =>
+        "Find the greatest common divisor of given numbers.";
 }

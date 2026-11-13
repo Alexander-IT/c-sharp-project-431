@@ -10,7 +10,7 @@ class Progression : IGame
     private const int MAX_START_PROGRESSION = Int32.MaxValue - MAX_ONE_STEP * MAX_LENGTH;
     private Random _randomGenerator = new();
     private string _question = string.Empty;
-    private string _answer = string.Empty;    
+    private string _answer = string.Empty;
 
     public override void GenerateNextQuestion()
     {
@@ -30,9 +30,9 @@ class Progression : IGame
     {
         int[] numbers = new int[length];
 
-        for(var i = 0; i < length; i++)
+        for (var i = 0; i < length; i++)
         {
-            numbers[i] = start + step * i;    
+            numbers[i] = start + step * i;
         }
 
         return numbers;

@@ -63,6 +63,6 @@ static class Engine
         Calc = 1,
         GCD = 2,
         Progression = 3,
-        Prime = 4
+        Prime = 4,
     }
 }
