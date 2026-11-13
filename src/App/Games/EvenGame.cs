@@ -18,5 +18,5 @@ class EvenGame : IGame
     public override string Answer => _answer;
 
     public override string RULES_OF_THE_GAME =>
-        "Answer 'yes' if the number is even, otherwice answer 'no'.";
+        "Answer 'yes' if the number is even, otherwise answer 'no'.";
 }

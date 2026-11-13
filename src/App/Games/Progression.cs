@@ -22,7 +22,9 @@ class Progression : IGame
 
         var hiddenNumber = numbers[_randomGenerator.Next(length)];
 
-        _question = Regex.Replace(string.Join(' ', numbers), $"(^| ){hiddenNumber}($| )", " .. ");
+        // Call Trim(), because after replace string can has space in start or end
+        _question = Regex.Replace(string.Join(' ', numbers), $"(^| ){hiddenNumber}($| )", " .. ").Trim(); 
+
         _answer = hiddenNumber.ToString();
     }
 
