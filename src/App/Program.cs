@@ -26,7 +26,7 @@ static class Program
 
     private static void OpenMainMenu()
     {
-        Console.WriteLine(
+        Console.Write(
             @$"Please enter the game number and press Enter.
 1 - {(MenuPoints)1}
 2 - {(MenuPoints)2}
@@ -34,7 +34,8 @@ static class Program
 4 - {(MenuPoints)4}
 5 - {(MenuPoints)5}
 6 - {(MenuPoints)6}
-0 - {(MenuPoints)0}"
+0 - {(MenuPoints)0}
+Your choice: "
         );
     }
 
@@ -52,7 +53,7 @@ static class Program
             }
             catch (FormatException)
             {
-                Console.WriteLine("Inccorect input. Please, enter your choice again: ");
+                Console.Write("Inccorect input. Please, enter your choice again: ");
                 continue;
             }
 
