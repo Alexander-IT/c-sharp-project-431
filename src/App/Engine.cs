@@ -9,7 +9,7 @@ static class Engine
         // In last step of project I read, what I don't need use abstrac classes and interface
         // So I write how I can do this without it:
         // Create switch, every case will create different games and call their methods
-        IGame game = GetGame(gameType); 
+        IGame game = GetGame(gameType);
 
         Console.WriteLine(game.RULES_OF_THE_GAME);
 
