@@ -36,7 +36,7 @@ static class Engine
         {
             game.GenerateNextQuestion(out string question, out string answer);
             UIHandler.PrintInformation($"Question: {question}\nYour answer: ");
-            var userAnswer = Console.ReadLine()?.Trim();
+            var userAnswer = UIHandler.GetInputFromUser();
 
             if (answer.Equals(userAnswer))
             {

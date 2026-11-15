@@ -19,7 +19,7 @@ public static class UIHandler
         }
 
         mainMenuText.Append($"\n0 - {menuPoints[0]}");
-
+        mainMenuText.Append("\nYour choice:");
         Console.WriteLine(mainMenuText.ToString());
     }
 
@@ -68,4 +68,6 @@ public static class UIHandler
     }
 
     public static void PrintInformation(string s) => Console.WriteLine(s);
+
+    public static string? GetInputFromUser() => Console.ReadLine()?.Trim();
 }
