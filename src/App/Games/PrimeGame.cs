@@ -1,17 +1,15 @@
 namespace App.Games;
 
-class Prime : IGame
+class PrimeGame : Game
 {
     private Random _randomGenerator = new();
-    private string _question = string.Empty;
-    private string _answer = string.Empty;
     private const int MAX_RAND_NUMBER = 1000; // If we use number bigger than 1000, we will rarely get prime number
 
-    public override void GenerateNextQuestion()
+    public override void GenerateNextQuestion(out string question, out string answer)
     {
-        var question = _randomGenerator.Next(MAX_RAND_NUMBER);
-        _question = question.ToString();
-        _answer = isPrime(question) ? "yes" : "no";
+        var randomNumber = _randomGenerator.Next(MAX_RAND_NUMBER);
+        question = randomNumber.ToString();
+        answer = isPrime(randomNumber) ? "yes" : "no";
     }
 
     private bool isPrime(int number)
@@ -24,10 +22,6 @@ class Prime : IGame
 
         return true;
     }
-
-    public override string Question => _question;
-
-    public override string Answer => _answer;
 
     public override string RULES_OF_THE_GAME =>
         "Answer 'yes' if given number is prime. Otherwise answer 'no'.";

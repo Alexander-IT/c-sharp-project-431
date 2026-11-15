@@ -1,21 +1,15 @@
 namespace App.Games;
 
-class EvenGame : IGame
+class EvenGame : Game
 {
     private Random _randomGenerator = new();
-    private string _question = string.Empty;
-    private string _answer = string.Empty;
 
-    public override void GenerateNextQuestion()
+    public override void GenerateNextQuestion(out string question, out string answer)
     {
-        var question = _randomGenerator.Next();
-        _question = question.ToString();
-        _answer = question % 2 == 0 ? "yes" : "no";
+        var randomNumber = _randomGenerator.Next();
+        question = randomNumber.ToString();
+        answer = randomNumber % 2 == 0 ? "yes" : "no";
     }
-
-    public override string Question => _question;
-
-    public override string Answer => _answer;
 
     public override string RULES_OF_THE_GAME =>
         "Answer 'yes' if the number is even, otherwise answer 'no'.";

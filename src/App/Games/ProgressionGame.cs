@@ -2,17 +2,15 @@ using System.Text.RegularExpressions;
 
 namespace App.Games;
 
-class Progression : IGame
+class ProgressionGame : Game
 {
     // Max steps of progression - 15, max value for one step - 1000
     private const int MAX_ONE_STEP = 1000;
     private const int MAX_LENGTH = 15;
     private const int MAX_START_PROGRESSION = Int32.MaxValue - MAX_ONE_STEP * MAX_LENGTH;
     private Random _randomGenerator = new();
-    private string _question = string.Empty;
-    private string _answer = string.Empty;
 
-    public override void GenerateNextQuestion()
+    public override void GenerateNextQuestion(out string question, out string answer)
     {
         var start = _randomGenerator.Next(MAX_START_PROGRESSION);
         var step = _randomGenerator.Next(MAX_ONE_STEP);
@@ -23,11 +21,11 @@ class Progression : IGame
         var hiddenNumber = numbers[_randomGenerator.Next(length)];
 
         // Call Trim(), because after replace string can has space in start or end
-        _question = Regex
+        question = Regex
             .Replace(string.Join(' ', numbers), $"(^| ){hiddenNumber}($| )", " .. ")
             .Trim();
 
-        _answer = hiddenNumber.ToString();
+        answer = hiddenNumber.ToString();
     }
 
     private int[] GenerateProgression(int start, int step, int length)
@@ -41,10 +39,6 @@ class Progression : IGame
 
         return numbers;
     }
-
-    public override string Question => _question;
-
-    public override string Answer => _answer;
 
     public override string RULES_OF_THE_GAME => "What number is missing in the progression?";
 }
