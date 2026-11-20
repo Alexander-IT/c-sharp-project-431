@@ -4,10 +4,17 @@ namespace App;
 
 public static class UIHandler
 {
-    private static readonly string[] menuPoints = ["Exit", "Greet", .. Engine.GameNames];
+    private static string[] menuPoints =
+    [
+        "Exit",
+        "Greet"
+    ];
 
-    public static void ShowMainMenu()
+    public static void ShowMainMenu(string[]? games = null)
     {
+        if(games != null)
+            menuPoints = [.. menuPoints, .. games];
+
         StringBuilder mainMenuText = new(
             $@"Please enter the game number and press Enter.
 1 - {menuPoints[1]}"
@@ -55,15 +62,15 @@ public static class UIHandler
         }
     }
 
-    public static void PrintResultGame(bool didUserWin)
+    public static void PrintResultGame(bool didUserWin, string userName)
     {
         if (didUserWin)
         {
-            Console.WriteLine($"Congratulations, {DataBase.GetValue("UserName")}!");
+            Console.WriteLine($"Congratulations, {userName}!");
         }
         else
         {
-            Console.WriteLine($"Let's try again, {DataBase.GetValue("UserName")}!");
+            Console.WriteLine($"Let's try again, {userName}!");
         }
     }
 

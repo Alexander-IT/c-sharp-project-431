@@ -5,11 +5,27 @@ class PrimeGame : Game
     private Random _randomGenerator = new();
     private const int MAX_RAND_NUMBER = 1000; // If we use number bigger than 1000, we will rarely get prime number
 
-    public override void GenerateNextQuestion(out string question, out string answer)
+    public override Dictionary<string, string> GenerateQuestions(int quantityOfQuestions)
     {
-        var randomNumber = _randomGenerator.Next(MAX_RAND_NUMBER);
-        question = randomNumber.ToString();
-        answer = isPrime(randomNumber) ? "yes" : "no";
+        Dictionary<string, string> questionsAnswers = new();
+
+        for (var i = 0; i < quantityOfQuestions; i++)
+        {
+            var randomNumber = _randomGenerator.Next(MAX_RAND_NUMBER);
+            var question = randomNumber.ToString();
+
+            // Check: if there is a same question in Dictionary - repeat this step
+            if (questionsAnswers.ContainsKey(question))
+            {
+                i--;
+                continue;
+            }
+
+            var answer = isPrime(randomNumber) ? "yes" : "no";
+            questionsAnswers.Add(question, answer);
+        }
+
+        return questionsAnswers;
     }
 
     private bool isPrime(int number)

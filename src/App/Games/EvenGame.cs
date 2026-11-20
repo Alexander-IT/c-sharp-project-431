@@ -4,11 +4,27 @@ class EvenGame : Game
 {
     private Random _randomGenerator = new();
 
-    public override void GenerateNextQuestion(out string question, out string answer)
+    public override Dictionary<string, string> GenerateQuestions(int quantityOfQuestions)
     {
-        var randomNumber = _randomGenerator.Next();
-        question = randomNumber.ToString();
-        answer = randomNumber % 2 == 0 ? "yes" : "no";
+        Dictionary<string, string> questionsAnswers = new();
+
+        for (var i = 0; i < quantityOfQuestions; i++)
+        {
+            var randomNumber = _randomGenerator.Next();
+            var question = randomNumber.ToString();
+
+            // Check: if there is a same question in Dictionary - repeat this step
+            if (questionsAnswers.ContainsKey(question))
+            {
+                i--;
+                continue;
+            }
+
+            var answer = randomNumber % 2 == 0 ? "yes" : "no";
+            questionsAnswers.Add(question, answer);
+        }
+
+        return questionsAnswers;
     }
 
     public override string RULES_OF_THE_GAME =>

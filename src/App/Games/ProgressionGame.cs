@@ -10,22 +10,36 @@ class ProgressionGame : Game
     private const int MAX_START_PROGRESSION = Int32.MaxValue - MAX_ONE_STEP * MAX_LENGTH;
     private Random _randomGenerator = new();
 
-    public override void GenerateNextQuestion(out string question, out string answer)
+    public override Dictionary<string, string> GenerateQuestions(int quantityOfQuestions)
     {
-        var start = _randomGenerator.Next(MAX_START_PROGRESSION);
-        var step = _randomGenerator.Next(MAX_ONE_STEP);
-        var length = _randomGenerator.Next(5, MAX_LENGTH + 1);
+        Dictionary<string, string> questionsAnswers = new();
 
-        var numbers = GenerateProgression(start, step, length);
+        for (var i = 0; i < quantityOfQuestions; i++)
+        {
+            var start = _randomGenerator.Next(MAX_START_PROGRESSION);
+            var step = _randomGenerator.Next(MAX_ONE_STEP);
+            var length = _randomGenerator.Next(5, MAX_LENGTH + 1);
 
-        var hiddenNumber = numbers[_randomGenerator.Next(length)];
+            var numbers = GenerateProgression(start, step, length);
 
-        // Call Trim(), because after replace string can has space in start or end
-        question = Regex
-            .Replace(string.Join(' ', numbers), $"(^| ){hiddenNumber}($| )", " .. ")
-            .Trim();
+            var hiddenNumber = numbers[_randomGenerator.Next(length)];
 
-        answer = hiddenNumber.ToString();
+            // Call Trim(), because after replace string can has space in start or end
+            var question = Regex
+                .Replace(string.Join(' ', numbers), $"(^| ){hiddenNumber}($| )", " .. ")
+                .Trim();
+
+            if (questionsAnswers.ContainsKey(question))
+            {
+                i--;
+                continue;
+            }
+
+            var answer = hiddenNumber.ToString();
+            questionsAnswers.Add(question, answer);
+        }
+
+        return questionsAnswers;
     }
 
     private int[] GenerateProgression(int start, int step, int length)

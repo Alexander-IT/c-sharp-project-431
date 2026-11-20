@@ -1,19 +1,35 @@
+using System.Runtime.InteropServices;
+
 namespace App.Games;
 
 class GCDGame : Game
 {
     private Random _randomGenerator = new();
 
-    public override void GenerateNextQuestion(out string question, out string answer)
+    public override Dictionary<string, string> GenerateQuestions(int quantityOfQuestions)
     {
-        var a = _randomGenerator.Next();
-        var b = _randomGenerator.Next();
+        Dictionary<string, string> questionsAnswers = new();
 
-        question = $"{a} {b}";
+        for (var i = 0; i < quantityOfQuestions; i++)
+        {
+            var a = _randomGenerator.Next();
+            var b = _randomGenerator.Next();
 
-        int commonDivisor = CalculateCommonDivisor(a, b);
+            var question = $"{a} {b}";
 
-        answer = commonDivisor.ToString();
+            // Check: if there is a same question in Dictionary - repeat this step
+            if (questionsAnswers.ContainsKey(question))
+            {
+                i--;
+                continue;
+            }
+
+            int commonDivisor = CalculateCommonDivisor(a, b);
+            var answer = commonDivisor.ToString();
+            questionsAnswers.Add(question, answer);
+        }
+
+        return questionsAnswers;
     }
 
     private int CalculateCommonDivisor(int a, int b)
