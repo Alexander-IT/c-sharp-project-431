@@ -4,15 +4,11 @@ namespace App;
 
 public static class UIHandler
 {
-    private static string[] menuPoints =
-    [
-        "Exit",
-        "Greet"
-    ];
+    private static string[] menuPoints = ["Exit", "Greet"];
 
     public static void ShowMainMenu(string[]? games = null)
     {
-        if(games != null)
+        if (games != null)
             menuPoints = [.. menuPoints, .. games];
 
         StringBuilder mainMenuText = new(

@@ -4,10 +4,7 @@ namespace App;
 
 static class Engine
 {
-    public static bool StartGame(
-        Dictionary<string, string> questionsAnswers,
-        string rulesOfGame
-    )
+    public static bool StartGame(Dictionary<string, string> questionsAnswers, string rulesOfGame)
     {
         UIHandler.PrintInformation(rulesOfGame);
 
