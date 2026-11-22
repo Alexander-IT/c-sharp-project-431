@@ -24,8 +24,8 @@ switch (menuPoint)
         GreetAndRequestName();
         break;
     default:
-        var didGetValue = games.TryGetValue(menuPoint, out Game? game);
-        if (!didGetValue || game == null)
+        Game? game = games.GetValueOrDefault(menuPoint);
+        if (game == null)
             throw new ArgumentException($"This menu point does'nt exists: {menuPoint}");
         var questionsAnswers = game.GenerateQuestions(gameRound);
         var playerName = GreetAndRequestName();
