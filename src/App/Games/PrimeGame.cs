@@ -39,6 +39,6 @@ class PrimeGame : Game
         return true;
     }
 
-    public override string RULES_OF_THE_GAME =>
+    public override string GameRules =>
         "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 }

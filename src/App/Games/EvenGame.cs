@@ -27,6 +27,6 @@ class EvenGame : Game
         return questionsAnswers;
     }
 
-    public override string RULES_OF_THE_GAME =>
+    public override string GameRules =>
         "Answer 'yes' if the number is even, otherwise answer 'no'.";
 }

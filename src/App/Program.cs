@@ -24,12 +24,13 @@ switch (menuPoint)
         GreetAndRequestName();
         break;
     default:
-        games.TryGetValue(menuPoint, out Game? game);
-        if (game == null)
+        var didGetValue = games.TryGetValue(menuPoint, out Game? game);
+        if (!didGetValue)
             throw new ArgumentException($"This menu point does'nt exists: {menuPoint}");
         var questionsAnswers = game.GenerateQuestions(gameRound);
         var playerName = GreetAndRequestName();
-        var playerWin = Engine.StartGame(questionsAnswers, game.RULES_OF_THE_GAME);
+        Engine.PrintGameInformation printMethod = UIHandler.PrintInformation;
+        var playerWin = Engine.StartGame(questionsAnswers, game.GameRules, printMethod);
         UIHandler.PrintResultGame(playerWin, playerName);
         break;
 }
@@ -39,3 +40,4 @@ string GreetAndRequestName()
     Cli.Greeting();
     return Cli.RequestUserName();
 }
+

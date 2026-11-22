@@ -54,5 +54,5 @@ class ProgressionGame : Game
         return numbers;
     }
 
-    public override string RULES_OF_THE_GAME => "What number is missing in the progression?";
+    public override string GameRules => "What number is missing in the progression?";
 }

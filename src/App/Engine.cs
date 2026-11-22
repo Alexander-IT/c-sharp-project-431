@@ -1,25 +1,23 @@
-using App.Games;
-
 namespace App;
 
 static class Engine
 {
-    public static bool StartGame(Dictionary<string, string> questionsAnswers, string rulesOfGame)
+    public static bool StartGame(Dictionary<string, string> questionsAnswers, string rulesOfGame, PrintGameInformation printInformation)
     {
-        UIHandler.PrintInformation(rulesOfGame);
+        printInformation(rulesOfGame);
 
         foreach (var questionAnswer in questionsAnswers)
         {
-            UIHandler.PrintInformation($"Question: {questionAnswer.Key}\nYour answer: ");
+            printInformation($"Question: {questionAnswer.Key}\nYour answer: ");
             var userAnswer = UIHandler.GetInputFromUser();
 
             if (questionAnswer.Value.Equals(userAnswer))
             {
-                UIHandler.PrintInformation("Correct!");
+                printInformation("Correct!");
             }
             else
             {
-                UIHandler.PrintInformation(
+                printInformation(
                     $"'{userAnswer}' is wrong answer ;(. Correct answer was '{questionAnswer.Value}'."
                 );
                 return false;
@@ -27,4 +25,6 @@ static class Engine
         }
         return true;
     }
+
+    public delegate void PrintGameInformation(string printingText);
 }

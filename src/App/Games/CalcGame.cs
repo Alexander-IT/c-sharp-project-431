@@ -98,5 +98,5 @@ class CalcGame : Game
         return questionsAnswers;
     }
 
-    public override string RULES_OF_THE_GAME => "What is the result of the expression?";
+    public override string GameRules => "What is the result of the expression?";
 }
