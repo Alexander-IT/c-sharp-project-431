@@ -50,6 +50,5 @@ class GCDGame : Game
         return commonDivisor;
     }
 
-    public override string GameRules =>
-        "Find the greatest common divisor of given numbers.";
+    public override string GameRules => "Find the greatest common divisor of given numbers.";
 }

@@ -2,7 +2,11 @@ namespace App;
 
 static class Engine
 {
-    public static bool StartGame(Dictionary<string, string> questionsAnswers, string rulesOfGame, PrintGameInformation printInformation)
+    public static bool StartGame(
+        Dictionary<string, string> questionsAnswers,
+        string rulesOfGame,
+        PrintGameInformation printInformation
+    )
     {
         printInformation(rulesOfGame);
 
